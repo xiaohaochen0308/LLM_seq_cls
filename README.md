@@ -44,6 +44,18 @@ modelscope download --model Qwen/Qwen2.5-7B-Instruct
 python lora_cls.py
 ```
 
+## 实验结果
+
+在 **N24News Abstract 文本分类任务** 上的实验结果如下：
+
+| 模型                        | 准确率 (Acc) |
+|-----------------------------|--------------|
+| **Ours (Qwen2.5-7B-Instruct)** | **85.26%**   |
+| Bert                        | 78.3%        |
+| RoBerta                     | 79.7%        |
+
+实验结果表明，`Qwen2.5-7B-Instruct` 模型在文本分类任务上表现优异，显著优于传统的 Bert 和 RoBerta 模型。
+
 ## 项目结构
 
 ```

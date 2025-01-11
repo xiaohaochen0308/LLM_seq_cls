@@ -7,6 +7,10 @@ This project focuses on fine-tuning the Qwen2.5-7B-Instruct model using Low-Rank
 ![Transformers](https://img.shields.io/badge/Transformers-4.30%2B-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
+## Author
+Chen Xiaohao
+Email: xiaohaochen@cuc.edu.cn
+
 ## Project Overview
 
 This project aims to provide an easy-to-use text classification tool based on the `Qwen2.5-7B-Instruct` model. It is suitable for various text classification scenarios, such as sentiment analysis, topic classification, and intent recognition. With the powerful capabilities of the pretrained model, users can quickly achieve high-accuracy text classification tasks.

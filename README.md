@@ -1,26 +1,26 @@
-# Qwen2.5-7B-Instruct 文本分类项目
+# Qwen2.5-7B-Instruct Text Classification Project
 
-本项目利用 `Qwen2.5-7B-Instruct` 模型进行文本分类任务。通过 `PyTorch` 和 `Transformers` 库，结合 `ModelScope` 平台提供的预训练模型，快速实现高效的文本分类。
+This project utilizes the `Qwen2.5-7B-Instruct` model for text classification tasks. By leveraging `PyTorch` and the `Transformers` library, combined with pretrained models from the `ModelScope` platform, it enables efficient and effective text classification.
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange)
 ![Transformers](https://img.shields.io/badge/Transformers-4.30%2B-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 项目简介
+## Project Overview
 
-本项目旨在提供一个简单易用的文本分类工具，基于 `Qwen2.5-7B-Instruct` 模型，适用于多种文本分类场景，如情感分析、主题分类、意图识别等。通过预训练模型的强大能力，用户可以快速实现高精度的文本分类任务。
+This project aims to provide an easy-to-use text classification tool based on the `Qwen2.5-7B-Instruct` model. It is suitable for various text classification scenarios, such as sentiment analysis, topic classification, and intent recognition. With the powerful capabilities of the pretrained model, users can quickly achieve high-accuracy text classification tasks.
 
-## 功能特性
+## Features
 
-- **支持多种文本分类任务**：情感分析、主题分类、意图识别等。
-- **基于强大的预训练模型**：使用 `Qwen2.5-7B-Instruct` 模型，提供高质量的文本分类能力。此外，支持不同大小的Qwen2.5.
-- **简单易用**：通过几行代码即可完成模型加载和推理。
-- **支持自定义训练**：用户可以根据自己的数据集对模型进行微调。
+- **Supports various text classification tasks**: Sentiment analysis, topic classification, intent recognition, and more.
+- **Powered by a robust pretrained model**: Utilizes the `Qwen2.5-7B-Instruct` model to deliver high-quality text classification. Also supports different sizes of Qwen2.5 models.
+- **Easy to use**: Load and infer the model with just a few lines of code.
+- **Supports custom training**: Users can fine-tune the model on their datasets.
 
-## 环境准备
+## Setup
 
-在开始之前，请确保已安装以下依赖：
+Before starting, ensure the following dependencies are installed:
 
 ```bash
 pip install torch
@@ -28,35 +28,35 @@ pip install transformers
 pip install modelscope
 ```
 
-## 模型下载
+## Model Download
 
-通过 `ModelScope` 下载 `Qwen2.5-7B-Instruct` 模型：
+Download the `Qwen2.5-7B-Instruct` model via `ModelScope`:
 
 ```bash
 modelscope download --model Qwen/Qwen2.5-7B-Instruct
 ```
 
-## 快速开始
+## Quick Start
 
-1. 运行代码
+1. Run the following script:
 
 ```bash
 python lora_cls.py
 ```
 
-## 实验结果
+## Experimental Results
 
-在 **N24News Abstract 文本分类任务** 上的实验结果如下：
+The experimental results on the **N24News Abstract text classification task** are as follows:
 
-| 模型                        | 准确率 (Acc) |
-|-----------------------------|--------------|
-| **Ours (Qwen2.5-7B-Instruct)** | **85.26%**   |
-| Bert                        | 78.3%        |
-| RoBerta                     | 79.7%        |
+| Model                        | Accuracy (Acc) |
+|------------------------------|----------------|
+| **Ours (Qwen2.5-7B-Instruct)** | **85.26%**     |
+| Bert                         | 78.3%          |
+| RoBerta                      | 79.7%          |
 
-实验结果表明，`Qwen2.5-7B-Instruct` 模型在文本分类任务上表现优异，显著优于传统的 Bert 和 RoBerta 模型。
+The results demonstrate that the `Qwen2.5-7B-Instruct` model performs exceptionally well on text classification tasks, significantly outperforming traditional Bert and RoBerta models.
 
-## 项目结构
+## Project Structure
 
 ```
 Qwen_seq_cls/
@@ -68,30 +68,30 @@ Qwen_seq_cls/
 └── data.py               
 ```
 
-## 自定义训练
+## Custom Training
 
-如果需要在自己的数据集上微调模型，可以参考以下步骤：
+To fine-tune the model on your dataset, follow these steps:
 
-1. 准备数据集，确保数据格式为 `文本` 和 `标签`。
-2. 参考项目提供数据。
+1. Prepare your dataset, ensuring it includes `text` and `label` fields.
+2. Refer to the project for the provided data format:
 ```bash
 {"messages": [{"role": "user", "content": "His new album features Cardi B, Justin Bieber, Chance the Rapper and countless other stars. But why?"}], "label": 22}
 {"messages": [{"role": "user", "content": "An opinionated take on the songwriter's major works, from a delayed debut to a Pulitzer Prize-winning classic."}], "label": 18}
 ```
 
-## 贡献指南
+## Contribution Guide
 
-欢迎贡献代码或提出建议
+Contributions and suggestions are welcome.
 
-## 许可证
+## License
 
-本项目采用 [MIT 许可证](LICENSE)。
+This project is licensed under the [MIT License](LICENSE).
 
-## 致谢
+## Acknowledgements
 
-- 感谢 [ModelScope](https://www.modelscope.cn/) 提供的 `Qwen2.5-7B-Instruct` 模型。
-- 感谢 [Hugging Face](https://huggingface.co/) 提供的 `Transformers` 库。
+- Thanks to [ModelScope](https://www.modelscope.cn/) for providing the `Qwen2.5-7B-Instruct` model.
+- Thanks to [Hugging Face](https://huggingface.co/) for the `Transformers` library.
 
 ---
 
-如有任何问题，请提交 Issue 或联系项目维护者。希望本项目对您的文本分类任务有所帮助！ 🚀
+For any questions, please submit an issue or contact the project maintainers. We hope this project helps with your text classification tasks! 🚀

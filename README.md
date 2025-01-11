@@ -38,57 +38,22 @@ modelscope download --model Qwen/Qwen2.5-7B-Instruct
 
 ## 快速开始
 
-### 1. 克隆本项目
+1. 运行代码
 
 ```bash
-git clone https://github.com/your-username/qwen2.5-text-classification.git
-cd qwen2.5-text-classification
-```
-
-### 2. 加载模型并进行文本分类
-
-在 `main.py` 中，加载模型并对输入文本进行分类：
-
-```python
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
-import torch
-
-# 加载模型和分词器
-model_name = "Qwen/Qwen2.5-7B-Instruct"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-
-# 输入文本
-text = "这是一个示例文本，用于测试分类效果。"
-
-# 分词并转换为模型输入
-inputs = tokenizer(text, return_tensors="pt")
-
-# 模型推理
-with torch.no_grad():
-    outputs = model(**inputs)
-    logits = outputs.logits
-
-# 获取预测结果
-predicted_class = torch.argmax(logits, dim=1).item()
-print(f"预测类别: {predicted_class}")
-```
-
-### 3. 运行代码
-
-```bash
-python main.py
+python lora_cls.py
 ```
 
 ## 项目结构
 
 ```
-qwen2.5-text-classification/
-├── README.md               # 项目说明文档
-├── main.py                 # 主程序，加载模型并进行文本分类
-├── requirements.txt        # 项目依赖
-├── data/                   # 存放训练或测试数据（可选）
-└── LICENSE                 # 项目许可证
+Qwen_seq_cls/
+├── README.md               
+├── lora_cls.py                 
+├── requirements.txt        
+├── train_trans_abs.json
+├── test_trans_abs.json          
+└── data.py               
 ```
 
 ## 自定义训练
@@ -96,32 +61,8 @@ qwen2.5-text-classification/
 如果需要在自己的数据集上微调模型，可以参考以下步骤：
 
 1. 准备数据集，确保数据格式为 `文本` 和 `标签`。
-2. 使用 `Transformers` 的 `Trainer` API 进行微调。
-3. 保存微调后的模型并加载使用。
+2. 参考项目提供数据。
 
-示例代码：
-
-```python
-from transformers import Trainer, TrainingArguments
-
-training_args = TrainingArguments(
-    output_dir="./results",
-    num_train_epochs=3,
-    per_device_train_batch_size=16,
-    per_device_eval_batch_size=16,
-    logging_dir="./logs",
-    logging_steps=10,
-)
-
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=train_dataset,  # 替换为你的训练数据集
-    eval_dataset=eval_dataset,    # 替换为你的验证数据集
-)
-
-trainer.train()
-```
 
 ## 贡献指南
 

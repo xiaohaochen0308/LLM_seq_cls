@@ -26,6 +26,7 @@ Before starting, ensure the following dependencies are installed:
 pip install torch
 pip install transformers
 pip install modelscope
+pip install peft
 ```
 
 ## Model Download

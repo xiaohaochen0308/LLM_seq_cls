@@ -1,6 +1,6 @@
-# Qwen2.5-7B-Instruct Text Classification Project
+# LoRA Fine-Tuning for Qwen2.5-7B-Instruct Text Classification
 
-This project utilizes the `Qwen2.5-7B-Instruct` model for text classification tasks. By leveraging `PyTorch` and the `Transformers` library, combined with pretrained models from the `ModelScope` platform, it enables efficient and effective text classification.
+This project focuses on fine-tuning the Qwen2.5-7B-Instruct model using Low-Rank Adaptation (LoRA) for text classification tasks. By integrating PyTorch and the Transformers library, along with pretrained models from the ModelScope platform, this approach enables efficient fine-tuning and enhances the performance of large language models (LLMs) in text classification scenarios.
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange)

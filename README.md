@@ -9,6 +9,7 @@ This project focuses on fine-tuning the Qwen2.5-7B-Instruct model using Low-Rank
 
 ## Author
 Chen Xiaohao
+
 Email: xiaohaochen@cuc.edu.cn
 
 ## Project Overview

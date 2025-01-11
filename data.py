@@ -63,8 +63,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
 # 假设 `train.json` 存储训练数据
-train_dataset = TextClassificationDataset(json_file="/root/paddlejob/workspace/chenxiaohao/qwen_cls/train_trans_abs.json", tokenizer=tokenizer)
-test_dataset = TextClassificationDataset(json_file="/root/paddlejob/workspace/chenxiaohao/qwen_cls/test_trans_abs.json", tokenizer=tokenizer)
+train_dataset = TextClassificationDataset(json_file="train_trans_abs.json", tokenizer=tokenizer)
+test_dataset = TextClassificationDataset(json_file="test_trans_abs.json", tokenizer=tokenizer)
 
 train_dataloader = DataLoader(train_dataset, batch_size=8, shuffle=True)
 test_dataloader = DataLoader(test_dataset, batch_size=8, shuffle=True)

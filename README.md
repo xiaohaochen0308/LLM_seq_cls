@@ -74,7 +74,10 @@ Qwen_seq_cls/
 
 1. 准备数据集，确保数据格式为 `文本` 和 `标签`。
 2. 参考项目提供数据。
-
+```bash
+{"messages": [{"role": "user", "content": "His new album features Cardi B, Justin Bieber, Chance the Rapper and countless other stars. But why?"}], "label": 22}
+{"messages": [{"role": "user", "content": "An opinionated take on the songwriter's major works, from a delayed debut to a Pulitzer Prize-winning classic."}], "label": 18}
+```
 
 ## 贡献指南
 

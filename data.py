@@ -1,19 +1,15 @@
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
 from transformers import AutoTokenizer
 import torch
 import json
 
-from torch.utils.data import DataLoader
-
-
-
 class TextClassificationDataset(Dataset):
     def __init__(self, json_file, tokenizer, max_length=512):
         """
-        初始化数据集
-        :param json_file: 存储数据的 JSON 文件路径
-        :param tokenizer: 用于文本 Tokenize 的 tokenizer
-        :param max_length: 最大文本长度
+        Initializes the dataset.
+        :param json_file: Path to the JSON file containing the data.
+        :param tokenizer: Tokenizer for text tokenization.
+        :param max_length: Maximum length of the text sequences.
         """
         self.tokenizer = tokenizer
         self.max_length = max_length
@@ -21,27 +17,28 @@ class TextClassificationDataset(Dataset):
 
     def load_data(self, json_file):
         """
-        从 JSON 文件加载数据
-        :param json_file: JSON 文件路径
-        :return: 加载的文本和标签列表
+        Loads data from a JSON file.
+        :param json_file: Path to the JSON file.
+        :return: List of text and label entries.
         """
         with open(json_file, "r") as f:
             data = [json.loads(line) for line in f]
         return data
 
     def __len__(self):
+        # Returns the total number of data entries.
         return len(self.data)
 
     def __getitem__(self, idx):
         """
-        获取数据集中的一条数据
-        :param idx: 索引
-        :return: 输入的 tokenized 数据和标签
+        Retrieves a single data entry.
+        :param idx: Index of the data entry.
+        :return: Dictionary containing tokenized input and label.
         """
-        text = self.data[idx]["messages"][0]["content"]  # 假设内容在 messages -> 0 -> content 中
+        text = self.data[idx]["messages"][0]["content"]  # Assumes content is in messages -> 0 -> content
         label = self.data[idx]["label"]
 
-        # Tokenize 文本
+        # Tokenize the text
         encoding = self.tokenizer(
             text,
             truncation=True,
@@ -50,19 +47,18 @@ class TextClassificationDataset(Dataset):
             return_tensors="pt",
         )
         
-        # 返回一个包含 tokenized 文本和标签的字典
+        # Returns a dictionary containing tokenized input and label
         return {
             "input_ids": encoding["input_ids"].squeeze(),  # [batch_size, seq_len]
             "attention_mask": encoding["attention_mask"].squeeze(),  # [batch_size, seq_len]
-            "labels": torch.tensor(label, dtype=torch.long)  # 标签
+            "labels": torch.tensor(label, dtype=torch.long)  # Label
         }
 
-# 加载模型和 tokenizer
+# Load model and tokenizer
 model_name = "/root/.cache/modelscope/hub/Qwen/Qwen2.5-7B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-
-# 假设 `train.json` 存储训练数据
+# Assuming `train.json` stores the training data
 train_dataset = TextClassificationDataset(json_file="train_trans_abs.json", tokenizer=tokenizer)
 test_dataset = TextClassificationDataset(json_file="test_trans_abs.json", tokenizer=tokenizer)
 

@@ -3,7 +3,7 @@
 This project focuses on fine-tuning the Qwen2.5-7B-Instruct model using Low-Rank Adaptation (LoRA) for **two key scenarios**:
 
 1. **Text Classification**: Sentiment analysis, topic classification, etc.  
-2. **Ad Title Ranking**: Learning preference between high-performing and low-performing advertisement titles using pairwise ranking.
+2. **Text Ranking**: Learning preference between high-performing and low-performing advertisement titles using pairwise ranking.
 
 By integrating PyTorch and the Transformers library, along with pretrained models from the ModelScope platform, this project enables efficient and scalable downstream adaptation of large language models (LLMs).
 
@@ -57,16 +57,18 @@ python train.py
 ## 📁 Project Structure
 
 ```
-Qwen_LoRA_Tasks/
-├── README.md
-├── lora_cls.py                  # Classification fine-tuning script
-├── lora_rank.py                 # Ranking model training (pairwise preference)
-├── model/TitleScorer.py         # Scoring model
-├── data.py                      # Dataloader for classification & ranking
-├── train_ctr.jsonl              # Ranking training data
-├── test_ctr.jsonl               # Ranking test data
-├── train_trans_abs.json         # Classification training data
-├── test_trans_abs.json          # Classification test data
+Qwen_LoRA_Project/
+├── README.md                          # Project documentation
+├── Text_Classification/              # Text classification module
+│   ├── data.py                       # Loads and processes classification data
+│   ├── lora_cls.py                   # LoRA fine-tuning and training script
+│   ├── train_trans_abs.json          # Training dataset (abstract text)
+│   └── test_trans_abs.json           # Test dataset (abstract text)
+│
+└── Text_Ranking/                     # Ad title ranking model (CTR preference ranking)
+    ├── data.py                       # Loads pairwise ad title data
+    ├── model.py                      # Defines the TitleScorer model (Qwen + LoRA)
+    └── train.py                      # Training and evaluation script for ranking model
 ```
 
 ---

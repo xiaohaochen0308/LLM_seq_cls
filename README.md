@@ -37,7 +37,8 @@ python lora_cls.py
 ### Ad Title Ranking (Pairwise)
 
 ```bash
-python lora_rank.py
+cd LoRA-RankingModel-for-Ads
+python train.py
 ```
 
 ---

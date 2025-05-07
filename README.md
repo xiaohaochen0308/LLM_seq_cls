@@ -31,13 +31,14 @@ pip install torch transformers peft modelscope
 ### Text Classification
 
 ```bash
+cd Text_Classification/
 python lora_cls.py
 ```
 
-### Ad Title Ranking (Pairwise)
+### Text Ranking (Pairwise)
 
 ```bash
-cd LoRA-RankingModel-for-Ads
+cd Text_Ranking/
 python train.py
 ```
 
